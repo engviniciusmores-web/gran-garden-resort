@@ -8,6 +8,7 @@ interface Notification {
   type: 'dailyLog' | 'photo' | 'lesson' | 'task';
   author: string;
   action: string;
+  details?: string; // Bloco, local, etc
   timestamp: Date;
   read: boolean;
 }
@@ -30,6 +31,7 @@ export const NotificationCenter: React.FC = () => {
               type: 'dailyLog',
               author: data.createdBy || 'Usuário',
               action: 'adicionou um Diário de Obra',
+              details: data.team ? `Equipe: ${data.team}` : undefined,
               timestamp: data.createdAt?.toDate() || new Date(),
               read: false
             });
@@ -50,6 +52,7 @@ export const NotificationCenter: React.FC = () => {
               type: 'photo',
               author: data.uploadedBy || 'Usuário',
               action: 'enviou uma foto',
+              details: data.location || undefined,
               timestamp: data.uploadedAt?.toDate() || new Date(),
               read: false
             });
@@ -70,6 +73,7 @@ export const NotificationCenter: React.FC = () => {
               type: 'lesson',
               author: data.reportedBy || 'Usuário',
               action: 'registrou uma Lição Aprendida',
+              details: data.category ? `Categoria: ${data.category}` : undefined,
               timestamp: data.createdAt?.toDate() || new Date(data.date),
               read: false
             });
@@ -212,6 +216,11 @@ export const NotificationCenter: React.FC = () => {
                         </span>{' '}
                         {notification.action}
                       </p>
+                      {notification.details && (
+                        <p className="text-xs text-slate-600 mt-1 font-medium">
+                          📍 {notification.details}
+                        </p>
+                      )}
                       <p className="text-xs text-slate-500 mt-1">
                         {formatTime(notification.timestamp)}
                       </p>

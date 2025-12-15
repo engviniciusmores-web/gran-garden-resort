@@ -90,13 +90,19 @@ export const DailyLog: React.FC<DailyLogProps> = ({ onSave, onCancel }) => {
           <label className="block text-sm font-medium text-slate-700 mb-2 flex items-center">
             <Users size={18} className="mr-2" /> Equipe Presente
           </label>
-          <input
-            type="text"
+          <select
             value={team}
             onChange={(e) => setTeam(e.target.value)}
-            placeholder="Ex: João, Maria, Pedro (15 pessoas)"
-            className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-          />
+            className="w-full p-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white"
+          >
+            <option value="">Selecione a equipe...</option>
+            <option value="Caio Rosa">👷 Caio Rosa (Blocos A1, A2, A3, A4)</option>
+            <option value="Daniel Hubner">👷 Daniel Hubner (Blocos B1, B2, B3, B4)</option>
+            <option value="Lucas Zotti">👷 Lucas Zotti (Blocos C1, C2, C3, C4)</option>
+            <option value="Tatiana Dallacosta">👷 Tatiana Dallacosta (Lazer e Áreas Comuns)</option>
+            <option value="Junior Brombatti">👷 Junior Brombatti (Recepção e Infraestrutura)</option>
+            <option value="Equipe Completa">👥 Equipe Completa (Todos os Blocos)</option>
+          </select>
         </div>
 
         {/* Atividades */}

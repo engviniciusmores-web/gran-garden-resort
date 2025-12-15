@@ -389,13 +389,19 @@ export const LessonsLearnedView: React.FC = () => {
                 </div>
                 <div>
                   <label className="block text-sm font-semibold text-slate-700 mb-2">Reportado Por *</label>
-                  <input
-                    type="text"
+                  <select
                     value={formData.reportedBy}
                     onChange={(e) => setFormData({ ...formData, reportedBy: e.target.value })}
-                    placeholder="Nome da equipe ou responsável"
-                    className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent"
-                  />
+                    className="w-full px-3 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-transparent bg-white"
+                  >
+                    <option value="">Selecione o responsável...</option>
+                    <option value="Caio Rosa">👷 Caio Rosa (Blocos A1, A2, A3, A4)</option>
+                    <option value="Daniel Hubner">👷 Daniel Hubner (Blocos B1, B2, B3, B4)</option>
+                    <option value="Lucas Zotti">👷 Lucas Zotti (Blocos C1, C2, C3, C4)</option>
+                    <option value="Tatiana Dallacosta">👷 Tatiana Dallacosta (Lazer e Áreas Comuns)</option>
+                    <option value="Junior Brombatti">👷 Junior Brombatti (Recepção e Infraestrutura)</option>
+                    <option value="Coordenação Geral">👥 Coordenação Geral</option>
+                  </select>
                 </div>
               </div>
 

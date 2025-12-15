@@ -150,18 +150,24 @@ const NewTaskModal: React.FC<{ isOpen: boolean; onClose: () => void; onSave: (ta
             <label className="block text-sm font-medium text-slate-700 mb-1">
               Responsável <span className="text-red-500">*</span>
             </label>
-            <input 
-              type="text" 
-              className={`w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 ${
+            <select 
+              className={`w-full p-2 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white ${
                 errors.responsible ? 'border-red-500' : 'border-slate-300'
               }`}
-              placeholder="Ex: Mestre João"
               value={responsible}
               onChange={(e) => {
                 setResponsible(e.target.value);
                 setErrors({...errors, responsible: undefined});
               }}
-            />
+            >
+              <option value="">Selecione o responsável...</option>
+              <option value="Caio Rosa">👷 Caio Rosa (Blocos A1, A2, A3, A4)</option>
+              <option value="Daniel Hubner">👷 Daniel Hubner (Blocos B1, B2, B3, B4)</option>
+              <option value="Lucas Zotti">👷 Lucas Zotti (Blocos C1, C2, C3, C4)</option>
+              <option value="Tatiana Dallacosta">👷 Tatiana Dallacosta (Lazer e Áreas Comuns)</option>
+              <option value="Junior Brombatti">👷 Junior Brombatti (Recepção e Infraestrutura)</option>
+              <option value="Equipe Completa">👥 Equipe Completa</option>
+            </select>
             {errors.responsible && <p className="text-xs text-red-500 mt-1">{errors.responsible}</p>}
           </div>
           <div className="flex gap-3 mt-6">
