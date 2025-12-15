@@ -72,19 +72,37 @@ export const ReportsView: React.FC<ReportsViewProps> = ({ tasks, currentProject 
     const margin = 20;
     let yPos = margin;
 
-    // Título principal
-    doc.setFontSize(20);
-    doc.setTextColor(30, 64, 175); // Azul GAV
-    doc.setFont('helvetica', 'bold');
-    doc.text('GRAN GARDEN RESORT', pageWidth / 2, yPos, { align: 'center' });
-    yPos += 10;
+    // ========== CABEÇALHO COM LOGO GAV ==========
+    // Retângulo de fundo azul GAV
+    doc.setFillColor(30, 64, 175); // Azul GAV
+    doc.rect(0, 0, pageWidth, 35, 'F');
     
-    doc.setFontSize(16);
-    doc.text(`RELATÓRIO ${data.type.toUpperCase()}`, pageWidth / 2, yPos, { align: 'center' });
-    yPos += 10;
+    // Logo GAV (retângulo branco simulando logo)
+    doc.setFillColor(255, 255, 255);
+    doc.roundedRect(margin - 5, 8, 30, 18, 2, 2, 'F');
+    doc.setFontSize(14);
+    doc.setTextColor(30, 64, 175);
+    doc.setFont('helvetica', 'bold');
+    doc.text('GAV', margin + 10, 17, { align: 'center' });
+    doc.setFontSize(6);
+    doc.text('RESORTS', margin + 10, 22, { align: 'center' });
 
-    // Linha separadora
-    doc.setDrawColor(yPos, pageWidth - margin, yPos);
+    // Título do relatório no cabeçalho
+    doc.setFontSize(22);
+    doc.setTextColor(255, 255, 255);
+    doc.setFont('helvetica', 'bold');
+    doc.text('GRAN GARDEN RESORT', pageWidth / 2, 15, { align: 'center' });
+    
+    doc.setFontSize(14);
+    doc.setFont('helvetica', 'normal');
+    doc.text(`Relatório ${data.type.toUpperCase()}`, pageWidth / 2, 23, { align: 'center' });
+
+    yPos = 45;
+
+    // Linha decorativa
+    doc.setDrawColor(30, 64, 175);
+    doc.setLineWidth(0.5);
+    doc.line(margin, yPos, pageWidth - margin, yPos);
     yPos += 10;
 
     // Informações do projeto
@@ -168,18 +186,29 @@ export const ReportsView: React.FC<ReportsViewProps> = ({ tasks, currentProject 
       }
     }
 
-    // Rodapé
+    // ========== RODAPÉ COM IDENTIDADE GAV ==========
+    const footerY = pageHeight - 25;
+    
+    // Retângulo de fundo azul no rodapé
+    doc.setFillColor(30, 64, 175);
+    doc.rect(0, footerY - 5, pageWidth, 30, 'F');
+    
+    // Textos do rodapé
     doc.setFontSize(9);
-    doc.setTextColor(100, 116, 139);
+    doc.setTextColor(255, 255, 255);
+    doc.setFont('helvetica', 'bold');
+    doc.text('GAV RESORTS', pageWidth / 2, footerY + 2, { align: 'center' });
+    
     doc.setFont('helvetica', 'normal');
-    const footerY = pageHeight - 20;
-    doc.text('Relatório gerado automaticamente pelo Gran Garden Resort', pageWidth / 2, footerY, { align: 'center' });
-    doc.text('Sistema de Gestão de Obras v2.0 | GAV Resorts', pageWidth / 2, footerY + 5, { align: 'center' });
-    doc.text(`© ${new Date().getFullYear()} - Todos os direitos reservados`, pageWidth / 2, footerY + 10, { align: 'center' });
+    doc.setFontSize(8);
+    doc.text('Gran Garden Resort - Sistema de Gestão de Obras v2.0', pageWidth / 2, footerY + 7, { align: 'center' });
+    doc.text(`Relatório gerado em ${new Date().toLocaleString('pt-BR')}`, pageWidth / 2, footerY + 11, { align: 'center' });
+    doc.text(`© ${new Date().getFullYear()} GAV Resorts - Todos os direitos reservados`, pageWidth / 2, footerY + 15, { align: 'center' });
 
-    // Salvar PDF
-    doc.save(`relatorio_${data.type}_${new Date().toISOString().split('T')[0]}.pdf`);
-    alert('✅ Relatório PDF gerado com sucesso!');
+    // Salvar PDF com nome padronizado GAV
+    const fileName = `GAV_${data.project.replace(/\s+/g, '_')}_Relatorio_${data.type}_${new Date().toISOString().split('T')[0]}.pdf`;
+    doc.save(fileName);
+    alert('✅ Relatório PDF com padrão GAV gerado com sucesso!');
   };
 
   const generateWord = async (data: any) => {
@@ -198,23 +227,57 @@ export const ReportsView: React.FC<ReportsViewProps> = ({ tasks, currentProject 
           }
         },
         children: [
+          // ========== CABEÇALHO GAV ==========
+          new Paragraph({
+            children: [
+              new TextRun({
+                text: 'GAV RESORTS',
+                bold: true,
+                size: 32,
+                color: '1E40AF',
+                font: 'Arial'
+              })
+            ],
+            alignment: AlignmentType.CENTER,
+            spacing: { after: 100 },
+            border: {
+              bottom: {
+                color: '1E40AF',
+                space: 1,
+                style: 'single',
+                size: 12
+              }
+            }
+          }),
+
           new Paragraph({
             text: 'GRAN GARDEN RESORT',
             heading: HeadingLevel.HEADING_1,
             alignment: AlignmentType.CENTER,
-            spacing: { after: 200 }
+            spacing: { after: 150 }
           }),
           
           new Paragraph({
-            text: `RELATÓRIO ${data.type.toUpperCase()}`,
-            heading: HeadingLevel.HEADING_2,
+            children: [
+              new TextRun({
+                text: `RELATÓRIO ${data.type.toUpperCase()}`,
+                bold: true,
+                size: 28,
+                color: '1E40AF'
+              })
+            ],
             alignment: AlignmentType.CENTER,
             spacing: { after: 400 }
           }),
 
-          // Linha separadora (simulada com texto)
+          // Linha separadora decorativa
           new Paragraph({
-            text: '━'.repeat(80),
+            children: [
+              new TextRun({
+                text: '━'.repeat(80),
+                color: '1E40AF'
+              })
+            ],
             alignment: AlignmentType.CENTER,
             spacing: { after: 200 }
           }),
@@ -332,38 +395,75 @@ export const ReportsView: React.FC<ReportsViewProps> = ({ tasks, currentProject 
             spacing: { after: 100 }
           })] : []),
 
-          // Rodapé
+          // ========== RODAPÉ GAV ==========
           new Paragraph({
-            text: '━'.repeat(80),
-            children: [new TextRun({ text: '━'.repeat(80), color: 'CBD5E1' })],
+            children: [
+              new TextRun({
+                text: '━'.repeat(80),
+                color: '1E40AF'
+              })
+            ],
             alignment: AlignmentType.CENTER,
-            spacing: { after: 200 }
+            spacing: { before: 400, after: 200 }
           }),
 
           new Paragraph({
-            text: 'Relatório gerado automaticamente pelo Gran Garden Resort',
+            children: [
+              new TextRun({
+                text: 'GAV RESORTS',
+                bold: true,
+                size: 24,
+                color: '1E40AF'
+              })
+            ],
+            alignment: AlignmentType.CENTER,
+            spacing: { after: 150 }
+          }),
+
+          new Paragraph({
+            children: [
+              new TextRun({
+                text: 'Gran Garden Resort - Sistema de Gestão de Obras v2.0',
+                size: 18,
+                color: '64748B'
+              })
+            ],
             alignment: AlignmentType.CENTER,
             spacing: { after: 100 }
           }),
 
           new Paragraph({
-            text: 'Sistema de Gestão de Obras v2.0 | GAV Resorts',
+            children: [
+              new TextRun({
+                text: `Relatório gerado em ${new Date().toLocaleString('pt-BR')}`,
+                size: 16,
+                color: '64748B'
+              })
+            ],
             alignment: AlignmentType.CENTER,
             spacing: { after: 100 }
           }),
 
           new Paragraph({
-            text: `© ${new Date().getFullYear()} - Todos os direitos reservados`,
+            children: [
+              new TextRun({
+                text: `© ${new Date().getFullYear()} GAV Resorts - Todos os direitos reservados`,
+                size: 16,
+                color: '64748B',
+                italics: true
+              })
+            ],
             alignment: AlignmentType.CENTER
           })
         ]
       }]
     });
 
-    // Gerar e salvar documento
+    // Gerar e salvar documento com nome padronizado GAV
     const blob = await Packer.toBlob(doc);
-    saveAs(blob, `relatorio_${data.type}_${new Date().toISOString().split('T')[0]}.docx`);
-    alert('✅ Relatório Word gerado com sucesso!');
+    const fileName = `GAV_${data.project.replace(/\s+/g, '_')}_Relatorio_${data.type}_${new Date().toISOString().split('T')[0]}.docx`;
+    saveAs(blob, fileName);
+    alert('✅ Relatório Word com padrão GAV gerado com sucesso!');
   };
 
   return (
