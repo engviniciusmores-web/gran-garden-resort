@@ -1,0 +1,26 @@
+{
+  "name": "Gran Garden Resort - Gestão de Obras",
+  "short_name": "GGR Obras",
+  "description": "Sistema completo de gestão de obras com BIM, cronograma, materiais e relatórios",
+  "start_url": "/gran-garden-resort/",
+  "scope": "/gran-garden-resort/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#1e40af",
+  "orientation": "any",
+  "categories": ["construction", "business", "productivity"],
+  "icons": [
+    {
+      "src": "/gran-garden-resort/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/gran-garden-resort/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

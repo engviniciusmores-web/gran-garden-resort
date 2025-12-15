@@ -1282,6 +1282,33 @@ const MainApp: React.FC = () => {
   const [isMaterialModalOpen, setMaterialModalOpen] = useState(false);
   const [isHelpModalOpen, setHelpModalOpen] = useState(false);
   
+  // PWA Install Banner
+  const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
+  const [showInstallBanner, setShowInstallBanner] = useState(false);
+
+  useEffect(() => {
+    const handler = (e: Event) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+      // Mostrar banner apenas se não estiver instalado
+      if (!window.matchMedia('(display-mode: standalone)').matches) {
+        setShowInstallBanner(true);
+      }
+    };
+    window.addEventListener('beforeinstallprompt', handler);
+    return () => window.removeEventListener('beforeinstallprompt', handler);
+  }, []);
+
+  const handleInstallClick = async () => {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    const { outcome } = await deferredPrompt.userChoice;
+    if (outcome === 'accepted') {
+      setShowInstallBanner(false);
+    }
+    setDeferredPrompt(null);
+  };
+  
   // Salvar preferência de tema
   useEffect(() => {
     localStorage.setItem('darkMode', JSON.stringify(darkMode));
@@ -1754,6 +1781,43 @@ const MainApp: React.FC = () => {
         }}
       />
       <HelpModal isOpen={isHelpModalOpen} onClose={() => setHelpModalOpen(false)} />
+      
+      {/* PWA Install Banner */}
+      {showInstallBanner && view !== 'LOGIN' && (
+        <div className="fixed bottom-4 left-4 right-4 md:left-auto md:right-4 md:w-96 bg-gradient-to-r from-blue-600 to-blue-700 text-white p-4 rounded-xl shadow-2xl z-50 animate-slideUp">
+          <div className="flex items-start gap-3">
+            <div className="bg-white/20 p-2 rounded-lg">
+              <Download className="w-6 h-6" />
+            </div>
+            <div className="flex-1">
+              <h3 className="font-bold text-lg mb-1">Instalar Aplicativo</h3>
+              <p className="text-sm text-blue-100 mb-3">
+                Adicione à tela inicial para acesso rápido e uso offline!
+              </p>
+              <div className="flex gap-2">
+                <button
+                  onClick={handleInstallClick}
+                  className="px-4 py-2 bg-white text-blue-600 font-semibold rounded-lg hover:bg-blue-50 transition-colors"
+                >
+                  Instalar
+                </button>
+                <button
+                  onClick={() => setShowInstallBanner(false)}
+                  className="px-4 py-2 bg-white/20 hover:bg-white/30 rounded-lg transition-colors"
+                >
+                  Agora não
+                </button>
+              </div>
+            </div>
+            <button
+              onClick={() => setShowInstallBanner(false)}
+              className="text-white/80 hover:text-white"
+            >
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
