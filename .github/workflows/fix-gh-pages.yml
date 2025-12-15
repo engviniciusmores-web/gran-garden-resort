@@ -1,9 +1,6 @@
 name: Fix gh-pages deployment
 
 on:
-  push:
-    branches:
-      - copilot/update-action-workflow
   workflow_dispatch:
 
 permissions:
@@ -25,14 +22,19 @@ jobs:
       
       - name: Add .nojekyll to gh-pages
         run: |
-          git checkout gh-pages
-          if [ ! -f .nojekyll ]; then
-            echo "Creating .nojekyll file on gh-pages branch"
-            touch .nojekyll
-            git add .nojekyll
-            git commit -m "Add .nojekyll to disable Jekyll processing"
-            git push origin gh-pages
-            echo "✅ .nojekyll added to gh-pages branch"
+          if git show-ref --verify --quiet refs/remotes/origin/gh-pages; then
+            git checkout gh-pages
+            if [ ! -f .nojekyll ]; then
+              echo "Creating .nojekyll file on gh-pages branch"
+              touch .nojekyll
+              git add .nojekyll
+              git commit -m "Add .nojekyll to disable Jekyll processing"
+              git push origin gh-pages
+              echo "✅ .nojekyll added to gh-pages branch"
+            else
+              echo "✅ .nojekyll already exists on gh-pages branch"
+            fi
           else
-            echo "✅ .nojekyll already exists on gh-pages branch"
+            echo "❌ gh-pages branch does not exist"
+            exit 1
           fi
