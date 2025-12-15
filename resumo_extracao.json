@@ -1,0 +1,19 @@
+{
+  "data_extracao": "2025-12-13",
+  "arquivos_catalogados": 33,
+  "categorias": {
+    "Estrutura": 25,
+    "Arquitetura": 1,
+    "Outros": 2,
+    "Orçamento": 2,
+    "Indicadores": 1,
+    "Cronograma": 2
+  },
+  "dados_extraidos": {
+    "orcamento_analitico": "preview_orcamento_analitico.json",
+    "orcamento_sintetico": "preview_orcamento_sintetico.json",
+    "grandes_compras": "preview_grandes_compras.json",
+    "farol": "preview_farol.json",
+    "arquivos_projeto": "lista_arquivos_projeto.json"
+  }
+}

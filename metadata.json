@@ -1,0 +1,8 @@
+{
+  "name": "ObraControl - Engenharia Raiz",
+  "description": "Gestão de obras simplificada para engenheiros de campo. Diário de obras, planejamento e controle de materiais.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}

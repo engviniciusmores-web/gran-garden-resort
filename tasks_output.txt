@@ -1,0 +1,401 @@
+﻿========================================================================================================================
+TOP 30 TAREFAS PARA O CONSTANTS.TS
+========================================================================================================================
+
+1. Limpeza de Terreno BLOCO A1 - A1 - T├®rreo
+   Status: Conclu├¡do | Realizado: 100.0%
+   Planejado: 2025-05-19 ÔåÆ 2025-05-28
+   Real: 2025-05-19 ÔåÆ 2025-05-28
+
+2. Limpeza de Terreno Lazer - Laz - 2oSS
+   Status: Conclu├¡do | Realizado: 100.0%
+   Planejado: 2025-05-28 ÔåÆ 2025-06-10
+   Real: 2025-05-28 ÔåÆ 2025-06-10
+
+3. Limpeza de Terreno Lazer - Laz - 01P
+   Status: Conclu├¡do | Realizado: 100.0%
+   Planejado: 2025-05-28 ÔåÆ 2025-06-10
+   Real: 2025-05-28 ÔåÆ 2025-06-10
+
+4. Escava├º├Áes e Aterros BLOCO A1 - A1 - T├®rreo
+   Status: Conclu├¡do | Realizado: 100.0%
+   Planejado: 2025-05-29 ÔåÆ 2025-06-09
+   Real: 2025-05-29 ÔåÆ 2025-06-09
+
+5. Limpeza de Terreno BLOCO C4 - C4 - T├®rreo
+   Status: Conclu├¡do | Realizado: 100.0%
+   Planejado: 2025-05-29 ÔåÆ 2025-06-09
+   Real: 2025-05-29 ÔåÆ 2025-06-09
+
+6. Funda├º├úo BLOCO A1 - A1 - T├®rreo
+   Status: Conclu├¡do | Realizado: 100.0%
+   Planejado: 2025-06-10 ÔåÆ 2025-07-01
+   Real: 2025-06-10 ÔåÆ 2025-07-01
+
+7. Escava├º├Áes e Aterros BLOCO C4 - C4 - T├®rreo
+   Status: Conclu├¡do | Realizado: 100.0%
+   Planejado: 2025-06-10 ÔåÆ 2025-06-20
+   Real: 2025-06-10 ÔåÆ 2025-06-20
+
+8. Limpeza de Terreno BLOCO C3 - C3 - T├®rreo
+   Status: Conclu├¡do | Realizado: 100.0%
+   Planejado: 2025-06-10 ÔåÆ 2025-06-20
+   Real: 2025-06-10 ÔåÆ 2025-06-20
+
+9. Limpeza de Terreno Lazer - Laz - 02P
+   Status: Conclu├¡do | Realizado: 100.0%
+   Planejado: 2025-06-11 ÔåÆ 2025-06-17
+   Real: 2025-06-11 ÔåÆ 2025-06-17
+
+10. Funda├º├úo BLOCO C4 - C4 - T├®rreo
+   Status: Conclu├¡do | Realizado: 100.0%
+   Planejado: 2025-06-23 ÔåÆ 2025-07-11
+   Real: 2025-06-23 ÔåÆ 2025-07-11
+
+11. Escava├º├Áes e Aterros BLOCO C3 - C3 - T├®rreo
+   Status: Conclu├¡do | Realizado: 100.0%
+   Planejado: 2025-06-23 ÔåÆ 2025-07-02
+   Real: 2025-06-23 ÔåÆ 2025-07-02
+
+12. Limpeza de Terreno BLOCO A2 - A2 - T├®rreo
+   Status: Conclu├¡do | Realizado: 100.0%
+   Planejado: 2025-06-23 ÔåÆ 2025-07-02
+   Real: 2025-06-23 ÔåÆ 2025-07-02
+
+13. Funda├º├úo BLOCO C3 - C3 - T├®rreo
+   Status: Conclu├¡do | Realizado: 100.0%
+   Planejado: 2025-07-03 ÔåÆ 2025-07-23
+   Real: 2025-07-03 ÔåÆ 2025-07-23
+
+14. Escava├º├Áes e Aterros BLOCO A2 - A2 - T├®rreo
+   Status: Conclu├¡do | Realizado: 100.0%
+   Planejado: 2025-07-03 ÔåÆ 2025-07-14
+   Real: 2025-07-03 ÔåÆ 2025-07-14
+
+15. Limpeza de Terreno BLOCO C2 - C2 - T├®rreo
+   Status: Conclu├¡do | Realizado: 100.0%
+   Planejado: 2025-07-03 ÔåÆ 2025-07-14
+   Real: 2025-07-03 ÔåÆ 2025-07-14
+
+16. Escava├º├Áes e Aterros Lazer - Laz - 02P
+   Status: Conclu├¡do | Realizado: 100.0%
+   Planejado: 2025-07-03 ÔåÆ 2025-07-14
+   Real: 2025-07-03 ÔåÆ 2025-07-14
+
+17. Limpeza de Terreno BLOCO A3 - A3 - T├®rreo
+   Status: Conclu├¡do | Realizado: 100.0%
+   Planejado: 2025-07-15 ÔåÆ 2025-07-24
+   Real: 2025-07-15 ÔåÆ 2025-07-24
+
+18. Escava├º├Áes e Aterros BLOCO C2 - C2 - T├®rreo
+   Status: Conclu├¡do | Realizado: 100.0%
+   Planejado: 2025-07-15 ÔåÆ 2025-07-24
+   Real: 2025-07-15 ÔåÆ 2025-07-24
+
+19. Escava├º├Áes e Aterros Recep├º├úo - Rec - 2SS
+   Status: Conclu├¡do | Realizado: 100.0%
+   Planejado: 2025-07-15 ÔåÆ 2025-08-25
+   Real: 2025-09-01 ÔåÆ 2025-10-10
+
+20. Conten├º├Áes Recep├º├úo - Rec - 2SS
+   Status: Conclu├¡do | Realizado: 100.0%
+   Planejado: 2025-07-15 ÔåÆ 2025-08-25
+   Real: 2025-09-01 ÔåÆ 2025-10-10
+
+21. Escava├º├Áes e Aterros BLOCO A3 - A3 - T├®rreo
+   Status: Conclu├¡do | Realizado: 100.0%
+   Planejado: 2025-07-25 ÔåÆ 2025-08-05
+   Real: 2025-07-25 ÔåÆ 2025-08-05
+
+22. Funda├º├úo BLOCO C2 - C2 - T├®rreo
+   Status: Conclu├¡do | Realizado: 100.0%
+   Planejado: 2025-07-25 ÔåÆ 2025-08-14
+   Real: 2025-07-25 ÔåÆ 2025-08-14
+
+23. Limpeza de Terreno BLOCO C1 - C1 - T├®rreo
+   Status: Conclu├¡do | Realizado: 100.0%
+   Planejado: 2025-07-25 ÔåÆ 2025-08-05
+   Real: 2025-07-25 ÔåÆ 2025-08-05
+
+24. Estrutura BLOCO A1 - A1 - T├®rreo
+   Status: Conclu├¡do | Realizado: 100.0%
+   Planejado: 2025-07-31 ÔåÆ 2025-08-15
+   Real: 2025-07-31 ÔåÆ 2025-08-20
+
+25. Conten├º├Áes BLOCO A1 - A1 - T├®rreo
+   Status: Conclu├¡do | Realizado: 100.0%
+   Planejado: 2025-07-31 ÔåÆ 2025-08-08
+   Real: 2025-07-31 ÔåÆ 2025-08-08
+
+26. Conten├º├Áes BLOCO C4 - C4 - T├®rreo
+   Status: Conclu├¡do | Realizado: 100.0%
+   Planejado: 2025-07-31 ÔåÆ 2025-08-08
+   Real: 2025-07-31 ÔåÆ 2025-08-08
+
+27. Estrutura BLOCO C4 - C4 - T├®rreo
+   Status: Conclu├¡do | Realizado: 100.0%
+   Planejado: 2025-07-31 ÔåÆ 2025-08-15
+   Real: 2025-09-22 ÔåÆ 2025-10-10
+
+28. Limpeza de Terreno BLOCO A4 - A4 - T├®rreo
+   Status: Conclu├¡do | Realizado: 100.0%
+   Planejado: 2025-08-06 ÔåÆ 2025-08-15
+   Real: 2025-08-06 ÔåÆ 2025-08-15
+
+29. Funda├º├úo BLOCO A3 - A3 - T├®rreo
+   Status: Conclu├¡do | Realizado: 100.0%
+   Planejado: 2025-08-06 ÔåÆ 2025-08-26
+   Real: 2025-08-06 ÔåÆ 2025-08-26
+
+30. Escava├º├Áes e Aterros BLOCO C1 - C1 - T├®rreo
+   Status: Conclu├¡do | Realizado: 100.0%
+   Planejado: 2025-08-06 ÔåÆ 2025-08-15
+   Real: 2025-08-06 ÔåÆ 2025-08-15
+
+
+========================================================================================================================
+C├ôDIGO TYPESCRIPT PARA CONSTANTS.TS
+========================================================================================================================
+
+export const MOCK_TASKS: Task[] = [
+  { 
+    id: '1', 
+    name: 'Limpeza de Terreno BLOCO A1 - A1 - T├®rreo', 
+    deadline: '2025-05-28', 
+    status: 'Conclu├¡do', 
+    responsible: 'Equipe Caio',
+    plannedStart: '2025-05-19',
+    plannedEnd: '2025-05-28',
+    actualStart: '2025-05-19' || undefined,
+    actualEnd: '2025-05-28' || undefined,
+    progress: 100
+  },
+  { 
+    id: '2', 
+    name: 'Limpeza de Terreno Lazer - Laz - 2oSS', 
+    deadline: '2025-06-10', 
+    status: 'Conclu├¡do', 
+    responsible: 'Equipe Tatiane',
+    plannedStart: '2025-05-28',
+    plannedEnd: '2025-06-10',
+    actualStart: '2025-05-28' || undefined,
+    actualEnd: '2025-06-10' || undefined,
+    progress: 100
+  },
+  { 
+    id: '3', 
+    name: 'Limpeza de Terreno Lazer - Laz - 01P', 
+    deadline: '2025-06-10', 
+    status: 'Conclu├¡do', 
+    responsible: 'Equipe Tatiane',
+    plannedStart: '2025-05-28',
+    plannedEnd: '2025-06-10',
+    actualStart: '2025-05-28' || undefined,
+    actualEnd: '2025-06-10' || undefined,
+    progress: 100
+  },
+  { 
+    id: '4', 
+    name: 'Escava├º├Áes e Aterros BLOCO A1 - A1 - T├®rreo', 
+    deadline: '2025-06-09', 
+    status: 'Conclu├¡do', 
+    responsible: 'Equipe Caio',
+    plannedStart: '2025-05-29',
+    plannedEnd: '2025-06-09',
+    actualStart: '2025-05-29' || undefined,
+    actualEnd: '2025-06-09' || undefined,
+    progress: 100
+  },
+  { 
+    id: '5', 
+    name: 'Limpeza de Terreno BLOCO C4 - C4 - T├®rreo', 
+    deadline: '2025-06-09', 
+    status: 'Conclu├¡do', 
+    responsible: 'Equipe Lucas',
+    plannedStart: '2025-05-29',
+    plannedEnd: '2025-06-09',
+    actualStart: '2025-05-29' || undefined,
+    actualEnd: '2025-06-09' || undefined,
+    progress: 100
+  },
+  { 
+    id: '6', 
+    name: 'Funda├º├úo BLOCO A1 - A1 - T├®rreo', 
+    deadline: '2025-07-01', 
+    status: 'Conclu├¡do', 
+    responsible: 'Equipe Caio',
+    plannedStart: '2025-06-10',
+    plannedEnd: '2025-07-01',
+    actualStart: '2025-06-10' || undefined,
+    actualEnd: '2025-07-01' || undefined,
+    progress: 100
+  },
+  { 
+    id: '7', 
+    name: 'Escava├º├Áes e Aterros BLOCO C4 - C4 - T├®rreo', 
+    deadline: '2025-06-20', 
+    status: 'Conclu├¡do', 
+    responsible: 'Equipe Lucas',
+    plannedStart: '2025-06-10',
+    plannedEnd: '2025-06-20',
+    actualStart: '2025-06-10' || undefined,
+    actualEnd: '2025-06-20' || undefined,
+    progress: 100
+  },
+  { 
+    id: '8', 
+    name: 'Limpeza de Terreno BLOCO C3 - C3 - T├®rreo', 
+    deadline: '2025-06-20', 
+    status: 'Conclu├¡do', 
+    responsible: 'Equipe Lucas',
+    plannedStart: '2025-06-10',
+    plannedEnd: '2025-06-20',
+    actualStart: '2025-06-10' || undefined,
+    actualEnd: '2025-06-20' || undefined,
+    progress: 100
+  },
+  { 
+    id: '9', 
+    name: 'Limpeza de Terreno Lazer - Laz - 02P', 
+    deadline: '2025-06-17', 
+    status: 'Conclu├¡do', 
+    responsible: 'Equipe Tatiane',
+    plannedStart: '2025-06-11',
+    plannedEnd: '2025-06-17',
+    actualStart: '2025-06-11' || undefined,
+    actualEnd: '2025-06-17' || undefined,
+    progress: 100
+  },
+  { 
+    id: '10', 
+    name: 'Funda├º├úo BLOCO C4 - C4 - T├®rreo', 
+    deadline: '2025-07-11', 
+    status: 'Conclu├¡do', 
+    responsible: 'Equipe Lucas',
+    plannedStart: '2025-06-23',
+    plannedEnd: '2025-07-11',
+    actualStart: '2025-06-23' || undefined,
+    actualEnd: '2025-07-11' || undefined,
+    progress: 100
+  },
+  { 
+    id: '11', 
+    name: 'Escava├º├Áes e Aterros BLOCO C3 - C3 - T├®rreo', 
+    deadline: '2025-07-02', 
+    status: 'Conclu├¡do', 
+    responsible: 'Equipe Lucas',
+    plannedStart: '2025-06-23',
+    plannedEnd: '2025-07-02',
+    actualStart: '2025-06-23' || undefined,
+    actualEnd: '2025-07-02' || undefined,
+    progress: 100
+  },
+  { 
+    id: '12', 
+    name: 'Limpeza de Terreno BLOCO A2 - A2 - T├®rreo', 
+    deadline: '2025-07-02', 
+    status: 'Conclu├¡do', 
+    responsible: 'Equipe Caio',
+    plannedStart: '2025-06-23',
+    plannedEnd: '2025-07-02',
+    actualStart: '2025-06-23' || undefined,
+    actualEnd: '2025-07-02' || undefined,
+    progress: 100
+  },
+  { 
+    id: '13', 
+    name: 'Funda├º├úo BLOCO C3 - C3 - T├®rreo', 
+    deadline: '2025-07-23', 
+    status: 'Conclu├¡do', 
+    responsible: 'Equipe Lucas',
+    plannedStart: '2025-07-03',
+    plannedEnd: '2025-07-23',
+    actualStart: '2025-07-03' || undefined,
+    actualEnd: '2025-07-23' || undefined,
+    progress: 100
+  },
+  { 
+    id: '14', 
+    name: 'Escava├º├Áes e Aterros BLOCO A2 - A2 - T├®rreo', 
+    deadline: '2025-07-14', 
+    status: 'Conclu├¡do', 
+    responsible: 'Equipe Caio',
+    plannedStart: '2025-07-03',
+    plannedEnd: '2025-07-14',
+    actualStart: '2025-07-03' || undefined,
+    actualEnd: '2025-07-14' || undefined,
+    progress: 100
+  },
+  { 
+    id: '15', 
+    name: 'Limpeza de Terreno BLOCO C2 - C2 - T├®rreo', 
+    deadline: '2025-07-14', 
+    status: 'Conclu├¡do', 
+    responsible: 'Equipe Lucas',
+    plannedStart: '2025-07-03',
+    plannedEnd: '2025-07-14',
+    actualStart: '2025-07-03' || undefined,
+    actualEnd: '2025-07-14' || undefined,
+    progress: 100
+  },
+  { 
+    id: '16', 
+    name: 'Escava├º├Áes e Aterros Lazer - Laz - 02P', 
+    deadline: '2025-07-14', 
+    status: 'Conclu├¡do', 
+    responsible: 'Equipe Tatiane',
+    plannedStart: '2025-07-03',
+    plannedEnd: '2025-07-14',
+    actualStart: '2025-07-03' || undefined,
+    actualEnd: '2025-07-14' || undefined,
+    progress: 100
+  },
+  { 
+    id: '17', 
+    name: 'Limpeza de Terreno BLOCO A3 - A3 - T├®rreo', 
+    deadline: '2025-07-24', 
+    status: 'Conclu├¡do', 
+    responsible: 'Equipe Caio',
+    plannedStart: '2025-07-15',
+    plannedEnd: '2025-07-24',
+    actualStart: '2025-07-15' || undefined,
+    actualEnd: '2025-07-24' || undefined,
+    progress: 100
+  },
+  { 
+    id: '18', 
+    name: 'Escava├º├Áes e Aterros BLOCO C2 - C2 - T├®rreo', 
+    deadline: '2025-07-24', 
+    status: 'Conclu├¡do', 
+    responsible: 'Equipe Lucas',
+    plannedStart: '2025-07-15',
+    plannedEnd: '2025-07-24',
+    actualStart: '2025-07-15' || undefined,
+    actualEnd: '2025-07-24' || undefined,
+    progress: 100
+  },
+  { 
+    id: '19', 
+    name: 'Escava├º├Áes e Aterros Recep├º├úo - Rec - 2SS', 
+    deadline: '2025-08-25', 
+    status: 'Conclu├¡do', 
+    responsible: 'Equipe Tatiane',
+    plannedStart: '2025-07-15',
+    plannedEnd: '2025-08-25',
+    actualStart: '2025-09-01' || undefined,
+    actualEnd: '2025-10-10' || undefined,
+    progress: 100
+  },
+  { 
+    id: '20', 
+    name: 'Conten├º├Áes Recep├º├úo - Rec - 2SS', 
+    deadline: '2025-08-25', 
+    status: 'Conclu├¡do', 
+    responsible: 'Equipe Tatiane',
+    plannedStart: '2025-07-15',
+    plannedEnd: '2025-08-25',
+    actualStart: '2025-09-01' || undefined,
+    actualEnd: '2025-10-10' || undefined,
+    progress: 100
+  },
+];
