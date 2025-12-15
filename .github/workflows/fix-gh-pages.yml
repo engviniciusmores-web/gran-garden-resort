@@ -1,0 +1,38 @@
+name: Fix gh-pages deployment
+
+on:
+  push:
+    branches:
+      - copilot/update-action-workflow
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fix-gh-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Configure Git
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+      
+      - name: Add .nojekyll to gh-pages
+        run: |
+          git checkout gh-pages
+          if [ ! -f .nojekyll ]; then
+            echo "Creating .nojekyll file on gh-pages branch"
+            touch .nojekyll
+            git add .nojekyll
+            git commit -m "Add .nojekyll to disable Jekyll processing"
+            git push origin gh-pages
+            echo "✅ .nojekyll added to gh-pages branch"
+          else
+            echo "✅ .nojekyll already exists on gh-pages branch"
+          fi
