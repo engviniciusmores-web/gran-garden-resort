@@ -49,6 +49,7 @@ import { ReportsView } from './components/ReportsView';
 import { LessonsLearnedView } from './components/LessonsLearnedView';
 import { PhotoGallery } from './components/PhotoGallery';
 import { HistoryView } from './components/HistoryView';
+import { NotificationCenter } from './components/NotificationCenter';
 
 // Dados completos: 4.221 tarefas integradas do sistema UNICIFA
 console.log(`✅ Sistema integrado com ${ALL_TASKS.length} tarefas do cronograma completo`);
@@ -1466,6 +1467,10 @@ const MainApp: React.FC = () => {
                     }`}
                   />
               </div>
+              
+              {/* Centro de Notificações */}
+              <NotificationCenter />
+              
               <button 
                 onClick={() => setDarkMode(!darkMode)}
                 className={`p-2 ${darkMode ? 'text-yellow-400 hover:bg-slate-800' : 'text-slate-600 hover:bg-slate-100'} rounded-full transition-colors`}
