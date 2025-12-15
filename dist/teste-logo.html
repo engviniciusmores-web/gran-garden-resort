@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Logo GAV</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1e40af;
+            text-align: center;
+        }
+        .logo-test {
+            text-align: center;
+            margin: 30px 0;
+        }
+        .logo-test img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #e5e7eb;
+            padding: 10px;
+        }
+        .status {
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .success {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #10b981;
+        }
+        .error {
+            background: #fee2e2;
+            color: #991b1b;
+            border: 1px solid #ef4444;
+        }
+        button {
+            background: #1e40af;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px;
+        }
+        button:hover {
+            background: #1e3a8a;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f9fafb;
+            border-radius: 5px;
+            font-family: monospace;
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Teste de Logo GAV - Gran Garden Resort</h1>
+        
+        <div class="logo-test">
+            <h3>Logo do Sistema:</h3>
+            <img id="logoImg" src="/gran-garden-resort.jpg" alt="Gran Garden Resort Logo">
+            <p id="logoStatus"></p>
+        </div>
+
+        <div>
+            <h3>Testes de Geração:</h3>
+            <button onclick="testPDF()">🔴 Gerar PDF com Logo</button>
+            <button onclick="testImageLoad()">🔍 Testar Carregamento</button>
+        </div>
+
+        <div id="result"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+    
+    <script>
+        const { jsPDF } = window.jspdf;
+        
+        // Verificar carregamento do logo na página
+        const logoImg = document.getElementById('logoImg');
+        const logoStatus = document.getElementById('logoStatus');
+        
+        logoImg.onload = function() {
+            logoStatus.innerHTML = '<div class="status success">✅ Logo carregado com sucesso!</div>';
+            console.log('Logo carregado:', logoImg.width, 'x', logoImg.height);
+        };
+        
+        logoImg.onerror = function() {
+            logoStatus.innerHTML = '<div class="status error">❌ Erro ao carregar logo!</div>';
+            console.error('Erro ao carregar logo');
+        };
+
+        function testImageLoad() {
+            const result = document.getElementById('result');
+            result.innerHTML = '<h4>Testando carregamento de imagem...</h4>';
+            
+            const testImg = new Image();
+            testImg.crossOrigin = 'anonymous';
+            
+            testImg.onload = function() {
+                result.innerHTML += '<div class="status success">✅ Imagem carregada com sucesso!</div>';
+                result.innerHTML += `<p>Dimensões: ${testImg.width}x${testImg.height}</p>`;
+                result.innerHTML += `<p>src: ${testImg.src}</p>`;
+            };
+            
+            testImg.onerror = function(e) {
+                result.innerHTML += '<div class="status error">❌ Erro ao carregar imagem!</div>';
+                result.innerHTML += `<p>Erro: ${e}</p>`;
+            };
+            
+            // Testar diferentes caminhos
+            const paths = [
+                '/gran-garden-resort.jpg',
+                '/assets/gran-garden-resort.jpg',
+                './gran-garden-resort.jpg'
+            ];
+            
+            result.innerHTML += `<p>Testando caminho: ${paths[0]}</p>`;
+            testImg.src = paths[0];
+        }
+
+        async function testPDF() {
+            const result = document.getElementById('result');
+            result.innerHTML = '<h4>Gerando PDF com Logo...</h4>';
+            
+            try {
+                const doc = new jsPDF({
+                    orientation: 'portrait',
+                    unit: 'mm',
+                    format: 'a4'
+                });
+                
+                const pageWidth = doc.internal.pageSize.getWidth();
+                let yPos = 20;
+                
+                // Tentar adicionar logo
+                result.innerHTML += '<p>📥 Carregando logo...</p>';
+                
+                const logoImg = new Image();
+                logoImg.crossOrigin = 'anonymous';
+                
+                await new Promise((resolve, reject) => {
+                    logoImg.onload = () => {
+                        try {
+                            const logoWidth = 80;
+                            const logoHeight = 40;
+                            const logoX = (pageWidth - logoWidth) / 2;
+                            
+                            doc.addImage(logoImg, 'JPEG', logoX, yPos, logoWidth, logoHeight);
+                            result.innerHTML += '<div class="status success">✅ Logo adicionado ao PDF!</div>';
+                            resolve(true);
+                        } catch (err) {
+                            result.innerHTML += '<div class="status error">❌ Erro ao adicionar logo: ' + err + '</div>';
+                            reject(err);
+                        }
+                    };
+                    
+                    logoImg.onerror = (err) => {
+                        result.innerHTML += '<div class="status error">❌ Erro ao carregar logo: ' + err + '</div>';
+                        reject(err);
+                    };
+                    
+                    logoImg.src = '/gran-garden-resort.jpg';
+                });
+                
+                yPos += 50;
+                
+                // Adicionar título
+                doc.setFontSize(20);
+                doc.setTextColor(30, 64, 175);
+                doc.setFont('helvetica', 'bold');
+                doc.text('GRAN GARDEN RESORT', pageWidth / 2, yPos, { align: 'center' });
+                
+                yPos += 10;
+                doc.setFontSize(16);
+                doc.text('RELATÓRIO DE TESTE', pageWidth / 2, yPos, { align: 'center' });
+                
+                // Salvar
+                doc.save('teste_logo_gav.pdf');
+                result.innerHTML += '<div class="status success">✅ PDF gerado e baixado com sucesso!</div>';
+                
+            } catch (error) {
+                result.innerHTML += '<div class="status error">❌ Erro: ' + error.message + '</div>';
+                console.error('Erro completo:', error);
+            }
+        }
+    </script>
+</body>
+</html>
