@@ -27,3 +27,11 @@ coverage
 *.njsproj
 *.sln
 *.sw?
+
+# Firebase / Environment Variables
+.env
+.env.local
+.env.production
+.env.*.local
+firebase-debug.log
+.firebase/

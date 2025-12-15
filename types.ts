@@ -1,5 +1,5 @@
 
-export type ViewState = 'LOGIN' | 'PROJECT_SELECT' | 'DASHBOARD' | 'DAILY_LOG' | 'PLANNING' | 'MATERIALS' | 'PEOPLE' | 'LESSONS_LEARNED' | 'REPORTS' | 'DATABASE' | 'BIM_VIEWER' | 'PROJECTS';
+export type ViewState = 'LOGIN' | 'PROJECT_SELECT' | 'DASHBOARD' | 'DAILY_LOG' | 'PLANNING' | 'MATERIALS' | 'PEOPLE' | 'LESSONS_LEARNED' | 'REPORTS' | 'DATABASE' | 'BIM_VIEWER' | 'PROJECTS' | 'PHOTOS' | 'HISTORY';
 
 export interface Project {
   id: string;

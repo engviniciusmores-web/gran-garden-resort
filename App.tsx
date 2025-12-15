@@ -47,6 +47,8 @@ import { Button } from './components/ui/Button';
 import { DailyLog } from './components/DailyLog';
 import { ReportsView } from './components/ReportsView';
 import { LessonsLearnedView } from './components/LessonsLearnedView';
+import { PhotoGallery } from './components/PhotoGallery';
+import { HistoryView } from './components/HistoryView';
 
 // Dados completos: 4.221 tarefas integradas do sistema UNICIFA
 console.log(`✅ Sistema integrado com ${ALL_TASKS.length} tarefas do cronograma completo`);
@@ -1420,6 +1422,8 @@ const MainApp: React.FC = () => {
           <SidebarItem icon={<FileText />} label="Projetos" target="PROJECTS" />
           <SidebarItem icon={<FolderOpen />} label="Base de Dados" target="DATABASE" />
           <SidebarItem icon={<Box />} label="BIM / IFC" target="BIM_VIEWER" />
+          <SidebarItem icon={<ImageIcon />} label="Galeria de Fotos" target="PHOTOS" />
+          <SidebarItem icon={<Calendar />} label="Histórico Completo" target="HISTORY" />
           <SidebarItem icon={<Users />} label="Gestão de Equipes" target="PEOPLE" />
           <SidebarItem icon={<AlertOctagon />} label="Lições Aprendidas" target="LESSONS_LEARNED" />
           <SidebarItem icon={<FileBarChart />} label="Relatórios" target="REPORTS" />
@@ -1495,6 +1499,8 @@ const MainApp: React.FC = () => {
           {view === 'MATERIALS' && <MaterialsView materials={materials} onRequestMaterial={() => setMaterialModalOpen(true)} />}
           {view === 'DATABASE' && <DatabaseView />}
           {view === 'BIM_VIEWER' && <BimView />}
+          {view === 'HISTORY' && <HistoryView />}
+          {view === 'PHOTOS' && <PhotoGallery />}
           {view === 'LESSONS_LEARNED' && <LessonsLearnedView />}
           {view === 'REPORTS' && <ReportsView tasks={ALL_TASKS} currentProject={currentProject} />}
           {view === 'PROJECTS' && (

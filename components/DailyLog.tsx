@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { Button } from './ui/Button';
 import { Calendar, Users, Cloud, Camera, FileText } from 'lucide-react';
+import { collection, addDoc, Timestamp } from 'firebase/firestore';
+import { db } from '../firebase';
 
 interface DailyLogProps {
   onSave: () => void;
@@ -13,11 +15,36 @@ export const DailyLog: React.FC<DailyLogProps> = ({ onSave, onCancel }) => {
   const [activities, setActivities] = useState('');
   const [team, setTeam] = useState('');
   const [notes, setNotes] = useState('');
+  const [saving, setSaving] = useState(false);
 
-  const handleSave = () => {
-    // Aqui você pode adicionar lógica para salvar os dados
-    console.log('Salvando diário de obra:', { date, weather, activities, team, notes });
-    onSave();
+  const handleSave = async () => {
+    if (!activities.trim()) {
+      alert('Por favor, descreva as atividades realizadas!');
+      return;
+    }
+
+    try {
+      setSaving(true);
+      
+      // Salvar no Firebase
+      await addDoc(collection(db, 'dailyLogs'), {
+        date: date,
+        weather: weather,
+        activities: activities,
+        team: team,
+        notes: notes,
+        createdAt: Timestamp.now(),
+        createdBy: localStorage.getItem('userName') || 'Usuário'
+      });
+
+      alert('Diário de obra salvo com sucesso!');
+      onSave();
+    } catch (error) {
+      console.error('Erro ao salvar:', error);
+      alert('Erro ao salvar diário. Verifique se o Firebase está configurado.');
+    } finally {
+      setSaving(false);
+    }
   };
 
   return (
@@ -113,11 +140,11 @@ export const DailyLog: React.FC<DailyLogProps> = ({ onSave, onCancel }) => {
 
         {/* Botões */}
         <div className="flex gap-4 pt-4">
-          <Button variant="outline" onClick={onCancel} fullWidth>
+          <Button variant="outline" onClick={onCancel} fullWidth disabled={saving}>
             Cancelar
           </Button>
-          <Button onClick={handleSave} fullWidth>
-            Salvar Diário
+          <Button onClick={handleSave} fullWidth disabled={saving}>
+            {saving ? 'Salvando...' : 'Salvar Diário'}
           </Button>
         </div>
       </div>
