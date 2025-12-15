@@ -1,8 +1,8 @@
 import { Project, Task, Material, BudgetCategory, ProjectFile } from './types';
 
-const TEAM_1 = "Caio, Daniel, Pedro";
-const TEAM_2 = "Lucas, Junior, Artur";
-const TEAM_3 = "Tatiane, Luis";
+const TEAM_1 = "Caio Rosa, Daniel Hubner";
+const TEAM_2 = "Lucas Zotti, Junior Brombatti";
+const TEAM_3 = "Tatiana Dallacosta";
 
 // Imagem oficial do Gran Garden Resort
 const RESORT_RENDER_IMG = "https://raw.githubusercontent.com/user-attachments/assets/gran-garden-resort.jpg";
@@ -63,19 +63,19 @@ const TODAS_AS_TAREFAS_COM_VALORES = dadosIntegrados.tarefas_completas;
 const atribuirResponsavel = (bloco: string, index: number): string => {
   if (!bloco || bloco === '-') {
     // Distribuir ciclicamente entre as equipes
-    const equipes = ['Caio Silva', 'Daniel Costa', 'Pedro Oliveira', 'Lucas Santos', 'Junior Alves', 'Artur Lima'];
+    const equipes = ['Caio Rosa', 'Daniel Hubner', 'Lucas Zotti', 'Tatiana Dallacosta', 'Junior Brombatti'];
     return equipes[index % equipes.length];
   }
   
   // Atribuir por bloco
-  if (bloco.includes('BLOCO A')) return 'Caio Silva';
-  if (bloco.includes('BLOCO B')) return 'Daniel Costa';
-  if (bloco.includes('BLOCO C')) return 'Pedro Oliveira';
-  if (bloco.includes('Lazer')) return 'Lucas Santos';
-  if (bloco.includes('Recepção')) return 'Junior Alves';
+  if (bloco.includes('BLOCO A')) return 'Caio Rosa';
+  if (bloco.includes('BLOCO B')) return 'Daniel Hubner';
+  if (bloco.includes('BLOCO C')) return 'Lucas Zotti';
+  if (bloco.includes('Lazer')) return 'Tatiana Dallacosta';
+  if (bloco.includes('Recepção')) return 'Junior Brombatti';
   
   // Distribuir demais
-  const equipes = ['Caio Silva', 'Daniel Costa', 'Pedro Oliveira', 'Lucas Santos', 'Junior Alves', 'Artur Lima'];
+  const equipes = ['Caio Rosa', 'Daniel Hubner', 'Lucas Zotti', 'Tatiana Dallacosta', 'Junior Brombatti'];
   return equipes[index % equipes.length];
 };
 

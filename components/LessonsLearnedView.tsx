@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { AlertOctagon, Plus, Filter, Calendar, User, FileText, Trash2, Edit2, Save, X } from 'lucide-react';
+import { collection, addDoc, getDocs, updateDoc, deleteDoc, doc, Timestamp, query, orderBy } from 'firebase/firestore';
+import { db } from '../firebase';
 
 interface LessonLearned {
   id: string;
@@ -15,32 +17,8 @@ interface LessonLearned {
 }
 
 export const LessonsLearnedView: React.FC = () => {
-  const [lessons, setLessons] = useState<LessonLearned[]>([
-    {
-      id: '1',
-      date: '2025-12-10',
-      title: 'Atraso na entrega de concreto',
-      description: 'Concretagem da laje do pavimento térreo atrasou 2 dias devido a problemas com fornecedor',
-      category: 'management',
-      severity: 'high',
-      reportedBy: 'Equipe Caio',
-      actionsTaken: 'Acionado fornecedor backup para próximas concretagens',
-      preventiveMeasures: 'Manter sempre dois fornecedores homologados com contratos',
-      status: 'resolved'
-    },
-    {
-      id: '2',
-      date: '2025-12-12',
-      title: 'Erro na medição de armação',
-      description: 'Descoberto erro no dimensionamento da armação do pilar P15 durante fiscalização',
-      category: 'technical',
-      severity: 'critical',
-      reportedBy: 'Coord. Geral',
-      actionsTaken: 'Reforço estrutural executado conforme orientação do projetista',
-      preventiveMeasures: 'Implementar dupla verificação em todos os elementos estruturais críticos',
-      status: 'resolved'
-    }
-  ]);
+  const [lessons, setLessons] = useState<LessonLearned[]>([]);
+  const [loading, setLoading] = useState(true);
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingLesson, setEditingLesson] = useState<LessonLearned | null>(null);
@@ -81,25 +59,63 @@ export const LessonsLearnedView: React.FC = () => {
     { value: 'resolved', label: 'Resolvido', color: 'text-green-600 bg-green-50' }
   ];
 
-  const handleSave = () => {
+  // Carregar lições do Firebase
+  useEffect(() => {
+    loadLessons();
+  }, []);
+
+  const loadLessons = async () => {
+    try {
+      const q = query(collection(db, 'lessonsLearned'), orderBy('date', 'desc'));
+      const snapshot = await getDocs(q);
+      const lessonsData = snapshot.docs.map(doc => ({
+        id: doc.id,
+        ...doc.data()
+      })) as LessonLearned[];
+      setLessons(lessonsData);
+    } catch (error) {
+      console.error('Erro ao carregar lições:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleSave = async () => {
     if (!formData.title || !formData.description || !formData.reportedBy) {
       alert('Preencha todos os campos obrigatórios!');
       return;
     }
 
-    if (editingLesson) {
-      setLessons(lessons.map(l => l.id === editingLesson.id ? { ...formData, id: l.id } as LessonLearned : l));
-    } else {
-      const newLesson: LessonLearned = {
-        ...formData,
-        id: Date.now().toString()
-      } as LessonLearned;
-      setLessons([newLesson, ...lessons]);
-    }
+    try {
+      setLoading(true);
+      
+      if (editingLesson) {
+        // Atualizar
+        await updateDoc(doc(db, 'lessonsLearned', editingLesson.id), {
+          ...formData,
+          updatedAt: Timestamp.now()
+        });
+        alert('✅ Lição atualizada com sucesso!');
+      } else {
+        // Criar nova
+        await addDoc(collection(db, 'lessonsLearned'), {
+          ...formData,
+          createdAt: Timestamp.now(),
+          createdBy: localStorage.getItem('userName') || 'Usuário'
+        });
+        alert('✅ Lição registrada com sucesso!');
+      }
 
-    setIsModalOpen(false);
-    setEditingLesson(null);
-    resetForm();
+      setIsModalOpen(false);
+      setEditingLesson(null);
+      resetForm();
+      loadLessons();
+    } catch (error) {
+      console.error('Erro ao salvar:', error);
+      alert('Erro ao salvar lição. Verifique se o Firebase está configurado.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleEdit = (lesson: LessonLearned) => {
@@ -108,9 +124,19 @@ export const LessonsLearnedView: React.FC = () => {
     setIsModalOpen(true);
   };
 
-  const handleDelete = (id: string) => {
-    if (confirm('Tem certeza que deseja excluir esta lição aprendida?')) {
-      setLessons(lessons.filter(l => l.id !== id));
+  const handleDelete = async (id: string) => {
+    if (!confirm('Tem certeza que deseja excluir esta lição aprendida?')) return;
+    
+    try {
+      setLoading(true);
+      await deleteDoc(doc(db, 'lessonsLearned', id));
+      alert('✅ Lição excluída com sucesso!');
+      loadLessons();
+    } catch (error) {
+      console.error('Erro ao excluir:', error);
+      alert('Erro ao excluir lição.');
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -147,6 +173,17 @@ export const LessonsLearnedView: React.FC = () => {
     return statuses.find(s => s.value === status)?.color || 'text-gray-600 bg-gray-50';
   };
 
+  if (loading) {
+    return (
+      <div className="flex items-center justify-center h-64">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-orange-600 mx-auto mb-4"></div>
+          <p className="text-slate-600">Carregando lições aprendidas...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="p-6 max-w-7xl mx-auto">
       {/* Header */}
@@ -156,7 +193,7 @@ export const LessonsLearnedView: React.FC = () => {
             <AlertOctagon className="w-8 h-8 text-orange-600 mr-3" />
             <div>
               <h1 className="text-3xl font-bold text-slate-800">Lições Aprendidas</h1>
-              <p className="text-slate-600 mt-1">Registro de problemas e aprendizados da obra</p>
+              <p className="text-slate-600 mt-1">Registro de problemas e aprendizados da obra - Salvo no Firebase</p>
             </div>
           </div>
           <button

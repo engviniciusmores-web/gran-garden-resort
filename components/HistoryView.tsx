@@ -61,6 +61,22 @@ export const HistoryView: React.FC = () => {
         });
       });
 
+      // Carregar Lições Aprendidas
+      const lessonsQuery = query(collection(db, 'lessonsLearned'), orderBy('date', 'desc'), limit(50));
+      const lessonsSnapshot = await getDocs(lessonsQuery);
+      lessonsSnapshot.forEach(doc => {
+        const data = doc.data();
+        allItems.push({
+          id: doc.id,
+          type: 'lesson',
+          date: data.createdAt?.toDate() || new Date(data.date),
+          title: data.title,
+          description: data.description?.substring(0, 150) + '...',
+          author: data.reportedBy || 'Desconhecido',
+          data: data
+        });
+      });
+
       // Ordenar por data
       allItems.sort((a, b) => b.date.getTime() - a.date.getTime());
       setItems(allItems);
