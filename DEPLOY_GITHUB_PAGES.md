@@ -33,7 +33,7 @@ git init
 # Adicionar todos os arquivos
 git add .
 
-# Fazer commit inicial
+# Fazer commit inicialhttps://engviniciusmores-web.github.io/gran-garden-resort/https://engviniciusmores-web.github.io/gran-garden-resort/
 git commit -m "Initial commit - Gran Garden Resort"
 
 # Renomear branch para main
@@ -47,7 +47,7 @@ git push -u origin main
 ```
 
 **NOTA:** No primeiro push, o GitHub vai pedir login. Use suas credenciais do GitHub.
-
+git remote add origin https://github.com/engviniciusmores-web/gran-garden-resort.git
 ---
 
 ## ✅ PASSO 4: Instalar gh-pages e Fazer Deploy
