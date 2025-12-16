@@ -1,40 +1,20 @@
-// Firebase Configuration - MODO OFFLINE (sem Firebase real)
-// Quando configurar Firebase real, substitua este arquivo
+import { initializeApp } from 'firebase/app';
+import { getFirestore } from 'firebase/firestore';
+import { getStorage } from 'firebase/storage';
+import { getAuth } from 'firebase/auth';
 
-// Mock Firebase - Não faz nada, apenas simula
-export const db = {
-  collection: () => ({
-    add: () => Promise.resolve({ id: Date.now().toString() }),
-    get: () => Promise.resolve({ docs: [] }),
-    doc: () => ({
-      get: () => Promise.resolve({ exists: false, data: () => ({}) }),
-      set: () => Promise.resolve(),
-      update: () => Promise.resolve(),
-      delete: () => Promise.resolve()
-    })
-  })
-} as any;
+const firebaseConfig = {
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID
+};
 
-export const storage = {
-  ref: () => ({
-    put: () => Promise.resolve({
-      ref: {
-        getDownloadURL: () => Promise.resolve('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==')
-      }
-    }),
-    delete: () => Promise.resolve()
-  })
-} as any;
+const app = initializeApp(firebaseConfig);
+export const db = getFirestore(app);
+export const storage = getStorage(app);
+export const auth = getAuth(app);
 
-export const auth = {
-  currentUser: null,
-  onAuthStateChanged: (callback: any) => {
-    callback(null);
-    return () => {};
-  }
-} as any;
-
-export default { db, storage, auth };
-
-console.log('🟡 Firebase OFFLINE - Sistema funcionando sem banco de dados');
-console.log('⚠️ Os dados não serão salvos até configurar o Firebase real');
+console.log('🟢 Firebase CONECTADO - Projeto:', firebaseConfig.projectId);
