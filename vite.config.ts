@@ -19,7 +19,7 @@ export default defineConfig(({ mode }) => {
           manifest: {
             name: 'Gran Garden Resort - Gestão de Obras',
             short_name: 'GGR Obras',
-            description: 'Sistema completo de gestão de obras com BIM, cronograma, materiais e relatórios',
+            description: 'Sistema completo de gestão de obras com BIM, cronograma, materiais e relatórios - v2.0',
             theme_color: '#1e40af',
             background_color: '#0f172a',
             display: 'standalone',
