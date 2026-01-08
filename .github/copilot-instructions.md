@@ -126,7 +126,9 @@ npm run deploy:github    # Build and deploy to GitHub Pages
 
 ### DO
 - **Write tests for new features** - follow existing test patterns in `src/test/`
-- **Use environment variables** - access via `import.meta.env` in Vite
+- **Use environment variables properly**:
+  - For Firebase config: Use `VITE_` prefixed variables accessed via `import.meta.env.VITE_*`
+  - For Gemini AI: Use `GEMINI_API_KEY` in `.env.local`, which is mapped to `process.env.API_KEY` and `process.env.GEMINI_API_KEY` via Vite's define configuration
 - **Follow accessibility guidelines** - use semantic HTML and ARIA when needed
 - **Implement dark mode support** - the app supports dark/light themes
 - **Maintain Portuguese terminology** - construction domain terms should remain in Portuguese
@@ -155,8 +157,8 @@ The current version includes:
 
 ## Environment Configuration
 
-- `GEMINI_API_KEY` - Required for AI features (set in `.env.local`). Note: This is accessed as `process.env.GEMINI_API_KEY` in the code via Vite's define configuration
-- Firebase configuration in `firebase.ts`
+- `GEMINI_API_KEY` - Set in `.env.local` for AI features. The Vite config maps this to `process.env.API_KEY` and `process.env.GEMINI_API_KEY` via the `define` option for use in application code
+- Firebase configuration in `firebase.ts` - Uses `VITE_` prefixed environment variables (e.g., `VITE_FIREBASE_API_KEY`) accessed via `import.meta.env`
 - Base path configured for GitHub Pages deployment: `/gran-garden-resort/`
 - Development server configured to run on port 3000 (overrides Vite's default port 5173)
 
