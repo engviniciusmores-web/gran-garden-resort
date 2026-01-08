@@ -77,7 +77,7 @@ This is **ObraControl** (Gran Garden Resort) - a complete construction managemen
 ### Development
 ```bash
 npm install              # Install dependencies
-npm run dev              # Start development server on port 3000
+npm run dev              # Start development server (configured to run on port 3000)
 ```
 
 ### Building
@@ -155,9 +155,10 @@ The current version includes:
 
 ## Environment Configuration
 
-- `GEMINI_API_KEY` - Required for AI features (set in `.env.local`)
+- `GEMINI_API_KEY` - Required for AI features (set in `.env.local`). Note: This is accessed as `process.env.GEMINI_API_KEY` in the code via Vite's define configuration
 - Firebase configuration in `firebase.ts`
 - Base path configured for GitHub Pages deployment: `/gran-garden-resort/`
+- Development server configured to run on port 3000 (overrides Vite's default port 5173)
 
 ## Documentation
 
@@ -173,5 +174,5 @@ Refer to these files for more details:
 - The project uses Brazilian Portuguese for domain-specific terminology and user-facing content
 - The application is configured as a PWA with offline support
 - Base URL is configured for GitHub Pages deployment
-- Port 3000 is the default development server port
+- Development server is configured to run on port 3000 (see `vite.config.ts`)
 - The project includes Python scripts for data extraction (legacy, not part of main codebase)
